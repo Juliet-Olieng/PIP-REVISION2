@@ -5,9 +5,9 @@ fun main(args: Array<String>) {
     var moroccanRecipe = MoroccanRecipe(listOf(Ingredient("chicken"),Ingredient("greenolives")), "1hour", "boiling", "carbohydrates")
     println(moroccanRecipe.displayDishes("Tagine"))
     var ethiopianRecipe = EthiopianRecipe(listOf(Ingredient("barley"),Ingredient("teff_flour")), "20mins", "baking", "carbohydrates")
-    println(ethiopianRecipe.displayDishes("injera"))
+    println(ethiopianRecipe.detectAllergies("pepper "))
     var nigerianRecipe = NigerianRecipe(listOf(Ingredient("rice"),Ingredient("meat")), "20mins", "baking", "carbohydrates")
-    println(nigerianRecipe.displayDishes("jollof"))
+    println(nigerianRecipe.numberOfPeople(5))
 
 //    three
 
@@ -35,19 +35,27 @@ class MoroccanRecipe(ingredients:List<Ingredient>,preparationTime: String,cookin
 
 }
 class EthiopianRecipe(ingredients: List<Ingredient>,preparationTime: String,cookingMethod: String,nutrients: String):Recipe(ingredients,preparationTime,cookingMethod,nutrients){
-    fun detectAlergies(allergy:String):String{
-        if (allergy in ingredients){
-            return "do not eat"
-        }
-        else{
-            return "eat"
+    fun detectAllergies(allergy: String): Boolean {
+        val ingredients = listOf("peanuts", "eggs", "milk", "fish")
+
+        if (allergy in ingredients) {
+            return true
+        } else {
+            return false
         }
     }
 
 }
 class NigerianRecipe(ingredients: List<Ingredient>,preparationTime: String,cookingMethod: String,nutrients: String):Recipe(ingredients,preparationTime,cookingMethod,nutrients){
-    fun simillarIngridient(){
-        if ()
+
+    fun numberOfPeople  (number:Int):String{
+        if (number>5){
+            return "the food is enough"
+
+        }
+        else{
+            return "food not enough"
+        }
     }
 
 }
