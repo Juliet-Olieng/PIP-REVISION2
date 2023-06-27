@@ -1,0 +1,79 @@
+class Species {
+  constructor(diet, lifespan, migrationPatterns) {
+    this.diet = diet;
+    this.lifespan = lifespan;
+    this.migrationPatterns = migrationPatterns;
+  }
+  
+  getDiet() {
+    return this.diet;
+  }
+  
+  getLifespan() {
+    return this.lifespan;
+  }
+  
+  getMigrationPatterns() {
+    return this.migrationPatterns;
+  }
+}
+
+class Predator extends Species {
+  constructor(diet, lifespan, migrationPatterns, huntingMethod) {
+    super(diet, lifespan, migrationPatterns);
+    this.huntingMethod = huntingMethod;
+  }
+  
+  getHuntingMethod() {
+    return this.huntingMethod;
+  }
+  
+  hunt() {
+    console.log("The predator is hunting using " + this.huntingMethod);
+  }
+  
+  isHungry(hungerLevel) {
+    if (hungerLevel > 7) {
+      console.log("The predator is hungry and needs to hunt.");
+      this.hunt();
+    } else {
+      console.log("The predator is not hungry right now.");
+    }
+  }
+}
+
+class Prey extends Species {
+  constructor(diet, lifespan, migrationPatterns, hidingBehavior) {
+    super(diet, lifespan, migrationPatterns);
+    this.hidingBehavior = hidingBehavior;
+  }
+  
+  getHidingBehavior() {
+    return this.hidingBehavior;
+  }
+  
+  hide() {
+    console.log("The prey is hiding using " + this.hidingBehavior);
+  }
+  
+  isSafe(isPredatorNearby) {
+    if (isPredatorNearby) {
+      console.log("The prey is not safe. It needs to hide.");
+      this.hide();
+    } else {
+      console.log("The prey is safe for now.");
+    }
+  }
+}
+
+const lion = new Predator("Carnivore", 12, "Seasonal", "Ambush hunting");
+const gazelle = new Prey("Herbivore", 8, "Seasonal", "Group hiding");
+
+console.log(lion.getDiet());
+console.log(gazelle.getLifespan());
+console.log(lion.getHuntingMethod());
+console.log(gazelle.getHidingBehavior());
+
+lion.isHungry(8); 
+gazelle.isSafe(true);
+
