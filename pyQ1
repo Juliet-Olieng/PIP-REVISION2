@@ -1,0 +1,34 @@
+class Ancestral_stories:
+    def __init__(self, length, moral_lesson, age_group):
+        self.length = length
+        self.moral_lesson = moral_lesson
+        self.age_group = age_group
+class Story(Ancestral_stories):
+    def __init__(self, title,age_group,length):
+        self.title = title
+        self.age_group = age_group
+        self.length = length
+       
+
+class StoryTeller:
+    def __init__(self, name, language):
+        self.name = name
+        self.language = language
+
+class Translator:
+    def __init__(self, translate_from_language, translate_to_language):
+        self.translate_from_language = translate_from_language
+        self.to_language = translate_to_language
+
+
+story = Story("The Lion King", 10, "Children”)
+story_teller = StoryTeller("Don Makambo", "English")
+translator = Translator("Kiswahili", "English")
+
+print("Title:", story.title)
+print("Age Group:", story.age_group)
+print("Name:", story_teller.name)
+print("Language:", story_teller.language)
+print("Translator Details:")
+print("From Language:", translator.translate_from_language)
+print("To Language:", translator.to_language)
