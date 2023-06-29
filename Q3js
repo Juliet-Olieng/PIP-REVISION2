@@ -1,3 +1,46 @@
+//q1
+class AncestralStories {
+    constructor(length, moralLesson, ageGroup) {
+      this.length = length;
+      this.moralLesson = moralLesson;
+      this.ageGroup = ageGroup;
+    }
+  }
+  
+  class Story extends AncestralStories {
+    constructor(title, character, ageGroup, length) {
+      super(length, null, ageGroup);
+      this.title = title;
+      this.character = character;
+    }
+  
+    addedStories(story) {
+      this.story = story;
+    }
+  }
+  
+  class StoryTeller {
+    constructor(name, language) {
+      this.name = name;
+      this.language = language;
+    }
+  }
+  
+  class Translator {
+    constructor(translateFromLanguage, translateToLanguage) {
+      this.translateFromLanguage = translateFromLanguage;
+      this.toLanguage = translateToLanguage;
+    }
+  }
+  
+  const story = new Story("The Lion King", 10, "Children", "5");
+  const storyTeller = new StoryTeller("Don Makambo", "English");
+  const translator = new Translator("Kiswahili", "English");
+    console.log("Title:", story.title);
+
+
+
+
 class Species {
   constructor(diet, lifespan, migrationPatterns) {
     this.diet = diet;
