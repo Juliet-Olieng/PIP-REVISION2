@@ -1,0 +1,29 @@
+fun main(args: Array<String>) {
+    var story=AncestralStories.Story("The lion king",200,"bravery",10)
+    println(story.record())
+    var storyteller=AncestralStories.Storyteller("Don Makambo","English")
+    println(storyteller.tellStory())
+    var translator=AncestralStories.Translator()
+    println(translator.translate("kiswahili"))
+
+
+}
+
+
+open class AncestralStories(var length:Int,var moralLesson:String,var ageGroup:Int){
+    class Story(var title: String, length:Int,moralLesson: String, ageGroup:Int):AncestralStories(length,moralLesson, ageGroup ) {
+        fun record(): String {
+            return "The story $title is $length pages,it talks about $moralLesson and it is for people of the age $ageGroup"
+        }
+    }
+        class Storyteller (var name:String,var language:String) {
+            fun tellStory(): String {
+                return "Today our storyteller is $name and she speaks $language , she is going to tell this type of story "
+            }
+        }
+        class Translator {
+            fun translate(targetLanguage: String):String{
+                return "story is  translated in $targetLanguage"
+            }
+        }
+}

@@ -1,0 +1,74 @@
+class Ancestral_stories:
+    def __init__(self, length, moral_lesson, age_group):
+        self.length = length
+        self.moral_lesson = moral_lesson
+        self.age_group = age_group
+class Story(Ancestral_stories):
+    def __init__(self, title,age_group,length):
+        self.title = title
+        self.age_group = age_group
+        self.length = length
+       
+
+class StoryTeller:
+    def __init__(self, name, language):
+        self.name = name
+        self.language = language
+
+class Translator:
+    def __init__(self, translate_from_language, translate_to_language):
+        self.translate_from_language = translate_from_language
+        self.to_language = translate_to_language
+
+
+story = Story("The Lion King", 10, "Children”)
+story_teller = StoryTeller("Don Makambo", "English")
+translator = Translator("Kiswahili", "English")
+
+print("Title:", story.title)
+print("Age Group:", story.age_group)
+print("Name:", story_teller.name)
+print("Language:", story_teller.language)
+print("Translator Details:")
+print("From Language:", translator.translate_from_language)
+print("To Language:", translator.to_language)
+
+//q2
+class Recipe:
+    def __init__(self, ingredients, preparation_time, cooking_method, nutritional_information):
+        self.ingredients = ingredients
+        self.preparation_time = preparation_time
+        self.cooking_method = cooking_method
+        self.nutritional_information = nutritional_information
+
+    def get_origin_of_food(self):
+        print(f"{self.__class__.__name__}, {self.origin}")
+
+
+class MoroccanRecipe(Recipe):
+    origin = "Morocco"
+
+
+class EthiopianRecipe(Recipe):
+    origin = "Ethiopia"
+
+
+class NigerianRecipe(Recipe):
+    origin = "Nigeria"
+
+
+recipe = Recipe("Spice, tomatoes, onions", "1 hour and 40 minutes", "steam", "strong bones")
+print(recipe.__dict__)
+
+moroccan_recipe = MoroccanRecipe("garlic, pepper, cheese", "2 hours 40 minutes", "fry", "smooth skin")
+moroccan_recipe.get_origin_of_food()
+print(moroccan_recipe.__dict__)
+
+ethiopian_recipe = EthiopianRecipe("Sugar, spice, lemons", "3 hour and 40 minutes", "steam", "strong teeth")
+ethiopian_recipe.get_origin_of_food()
+print(ethiopian_recipe.__dict__)
+
+nigerian_recipe = NigerianRecipe("water, lemons, salad", "4 hours 50 minutes", "stir-fry", "great eye-sight")
+nigerian_recipe.get_origin_of_food()
+print(nigerian_recipe.__dict__)
+

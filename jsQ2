@@ -1,0 +1,37 @@
+class Recipe{
+    constructor(ingredients,preparationTime,cookingMethod,nutritionalInformation){
+        this.ingredients=ingredients
+        this.preparationTime=preparationTime
+        this.cookingMethod=cookingMethod
+        this.nutritionalInformation=nutritionalInformation
+    }
+    getOriginOfFood(){
+        console.log(`${this.constructor.name},${this.origin}`)
+    }
+
+}
+class MoroccanRecipe extends Recipe{
+    origin="Morocco"
+}
+class EthiopianRecipe  extends Recipe{
+    origin="Ethiopia"
+}
+class  NigerianRecipe extends Recipe{
+    origin="Nigeria"
+
+}
+
+let recipe=new Recipe("Spice ,tomatoes ,onions " ,"1 hour and 40 minutes","steam", "strong bones")
+console.log(recipe)
+
+let morroccanRecipe=new MoroccanRecipe("garlic ,pepper,cheese", "2 hours 40 minutes","fry","smooth skin")
+morroccanRecipe.getOriginOfFood()
+console.log(morroccanRecipe)
+
+let ethiopianRecipe=new EthiopianRecipe("Sugar, spice ,lemons" ,"3 hour and 40 minutes","steam","strong teeth")
+ethiopianRecipe.getOriginOfFood()
+console.log(ethiopianRecipe)
+
+let nigerianRecipe=new NigerianRecipe("water,lemons,salad","4 hours 50 minutes","stir-fry","great eye-sight")
+nigerianRecipe.getOriginOfFood()
+console.log(nigerianRecipe)
