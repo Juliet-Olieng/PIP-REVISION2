@@ -37,6 +37,44 @@ class AncestralStories {
   const storyTeller = new StoryTeller("Don Makambo", "English");
   const translator = new Translator("Kiswahili", "English");
     console.log("Title:", story.title);
+//q2
+class Recipe{
+    constructor(ingredients,preparationTime,cookingMethod,nutritionalInformation){
+        this.ingredients=ingredients
+        this.preparationTime=preparationTime
+        this.cookingMethod=cookingMethod
+        this.nutritionalInformation=nutritionalInformation
+    }
+    getOriginOfFood(){
+        console.log(`${this.constructor.name},${this.origin}`)
+    }
+
+}
+class MoroccanRecipe extends Recipe{
+    origin="Morocco"
+}
+class EthiopianRecipe  extends Recipe{
+    origin="Ethiopia"
+}
+class  NigerianRecipe extends Recipe{
+    origin="Nigeria"
+
+}
+
+let recipe=new Recipe("Spice ,tomatoes ,onions " ,"1 hour and 40 minutes","steam", "strong bones")
+console.log(recipe)
+
+let morroccanRecipe=new MoroccanRecipe("garlic ,pepper,cheese", "2 hours 40 minutes","fry","smooth skin")
+morroccanRecipe.getOriginOfFood()
+console.log(morroccanRecipe)
+
+let ethiopianRecipe=new EthiopianRecipe("Sugar, spice ,lemons" ,"3 hour and 40 minutes","steam","strong teeth")
+ethiopianRecipe.getOriginOfFood()
+console.log(ethiopianRecipe)
+
+let nigerianRecipe=new NigerianRecipe("water,lemons,salad","4 hours 50 minutes","stir-fry","great eye-sight")
+nigerianRecipe.getOriginOfFood()
+console.log(nigerianRecipe)
 
 
 
@@ -119,4 +157,64 @@ console.log(gazelle.getHidingBehavior());
 
 lion.isHungry(8); 
 gazelle.isSafe(true);
+
+
+//q4
+class MusicFestival {
+  constructor() {
+    this.artists = [];
+    this.genre = ['hiphop', 'reggae', 'R&B', 'acoustic'];
+    this.instruments = [];
+    this.lineUp = [];
+  }
+}
+class Stage extends MusicFestival {
+  constructor() {
+    super();
+    this.lights = 'white';
+    this.instrument = ['Drum', 'microphone'];
+  }
+  addToLineUp(musicType) {
+    if (this.genre.includes(musicType)) {
+      this.lineUp.push(musicType);
+    } else {
+      return 'This music type is not available';
+    }
+  }
+  stageManagement() {
+    if (this.genre == 'hip hop') {
+      this.lights = 'Blue lights';
+      return this.lights;
+    } else if (this.genre == 'reggae') {
+      this.lights = 'Green lights';
+      return this.lights;
+    } else if (this.genre == 'R&B') {
+      this.lights = 'Bright lights';
+      return this.lights;
+    } else {
+      return this.lights;
+    }
+  }
+  instrumentAssign() {
+    if (this.genre == 'hiphop') {
+      this.instrument.push('bass');
+      return this.instrument;
+    } else if (this.genre == 'R&B') {
+      this.instrument.push('saxophone');
+      return this.instrument;
+    } else if (this.genre == 'reggae') {
+      this.instrument.push('lead');
+      return this.instrument;
+    } else {
+      return this.instrument;
+    }
+  }
+}
+const festival = new MusicFestival();
+const stage = new Stage();
+stage.addToLineUp('hiphop');
+stage.addToLineUp('reggae');
+console.log(stage.lineUp);
+console.log(stage.stageManagement());
+console.log(stage.instrumentAssign());
 
