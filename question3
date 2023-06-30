@@ -1,0 +1,68 @@
+fun main(args: Array<String>) {
+    val festival = MusicFestival()
+    val stage = Stage()
+    stage.addToLineup("hiphop")
+    stage.addToLineup("reggae")
+    println(stage.lineup)
+    println(stage.stageManagement())
+    println(stage.instrumentAssign())
+
+}
+//    4. **African Music Festival:** You're in charge of organizing a Pan-African music
+//    festival. Many artists from different countries, each with their own musical style
+//    and instruments, are scheduled to perform. You need to write a program to
+//    manage the festival lineup, schedule, and stage arrangements. Think about how
+//    you might model the `Artist`, `Performance`, and `Stage` classes, and consider
+//    how you might use inheritance if there are different types of performances or
+//    stages
+
+open class MusicFestival {
+    val artists = mutableListOf<String>()
+    val genres = listOf("hiphop", "reggae", "R&B", "acoustic")
+    val instruments = mutableListOf<String>()
+    val lineup = mutableListOf<String>()
+}
+
+class Stage() : MusicFestival() {
+    var lights = "white"
+
+    init {
+        instruments.addAll(listOf("Drum", "microphone"))
+    }
+
+    fun addToLineup(musicType: String): String {
+        return if (musicType in genres) {
+            lineup.add(musicType)
+            "Added to lineup: $musicType"
+        } else {
+            "This music type is not available"
+        }
+    }
+
+    fun stageManagement(): String {
+        return if (lineup.isNotEmpty()) {
+            val currentGenre = lineup.last()
+            lights = when (currentGenre) {
+                "hiphop" -> "Blue lights"
+                "reggae" -> "Green lights"
+                "R&B" -> "Bright lights"
+                else -> lights
+            }
+            lights
+        } else {
+            lights
+        }
+    }
+
+    fun instrumentAssign(): List<String> {
+        if (lineup.isNotEmpty()) {
+            val currentGenre = lineup.last()
+            when (currentGenre) {
+                "hiphop" -> instruments.add("bass")
+                "R&B" -> instruments.add("saxophone")
+                "reggae" -> instruments.add("lead")
+            }
+        }
+        return instruments
+    }
+}
