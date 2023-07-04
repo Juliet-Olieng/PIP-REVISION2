@@ -218,3 +218,27 @@ console.log(stage.lineUp);
 console.log(stage.stageManagement());
 console.log(stage.instrumentAssign());
 
+//q5
+class Product{
+  constructor(name,price,quantity){
+    this.name=name
+    this.price=price
+    this.quantity=quantity
+  }
+  calculateTotalValue(){
+    let totalValue = 0
+    if(this.name && this.price && this.quantity){
+      totalValue = this.price * this.quantity
+      return totalValue
+    }
+    else {
+      return null
+    }
+  }
+}
+const product1 = new Product("Apples", 0.5, 10);
+const product2 = new Product("Bananas", 0.3, 15);
+const product3 = new Product("Oranges", 0.4, 8);
+console.log(`Total value of ${product1.name}: $${product1.calculateTotalValue()}`);
+console.log(`Total value of ${product2.name}: $${product2.calculateTotalValue()}`);
+
